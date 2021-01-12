@@ -7,15 +7,15 @@ import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'applicaiton.json'
-  })
-}
+    'Content-Type': 'applicaiton.json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToDoService {
-
+  toDosUrl: any;
   constructor(private http: HttpClient) {}
 
   // Get To Dos
@@ -23,9 +23,15 @@ export class ToDoService {
     return this.http.get<Todo[]>(toDosUrl);
   }
 
-  // Toggle Completed
-  toggleCompleted(todo: Todo): Observable<any>{
+  // Toggle Completed --- a "put" request updates server
+  toggleCompleted(todo: Todo): Observable<any> {
     const url = `${toDosUrl}/${todo.id}`;
     return this.http.put(url, todo, httpOptions);
+  }
+
+  // Delete Todo
+  deleteToDo(todo: Todo): Observable<Todo> {
+    const url = `${toDosUrl}/${todo.id}`;
+    return this.http.delete<Todo>(url, httpOptions);
   }
 }

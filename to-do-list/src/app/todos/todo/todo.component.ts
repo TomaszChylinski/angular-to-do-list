@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../../models/ToDo';
-import {ToDoService} from '../../services/todo.service';
+import { ToDoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -10,11 +10,17 @@ import {ToDoService} from '../../services/todo.service';
 export class TodoComponent implements OnInit {
   toDos: Todo[];
 
-  constructor(private toDoServce: ToDoService ) {}
+  constructor(private toDoServce: ToDoService) {}
 
   ngOnInit() {
-    this.toDoServce.getToDos().subscribe(todos => {
+    this.toDoServce.getToDos().subscribe((todos) => {
       this.toDos = todos;
     });
+  }
+
+  deleteToDo(todo: Todo) {
+    console.log('fire delete');
+    this.toDos = this.toDos.filter(t => t.id !== todo.id);
+    this.toDoServce.deleteToDo(todo).subscribe();
   }
 }
