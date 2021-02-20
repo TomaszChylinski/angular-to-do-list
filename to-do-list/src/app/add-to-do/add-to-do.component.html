@@ -1,0 +1,11 @@
+<div class="col-md-8">
+  <form class="form" (ngSubmit)="onSubmit()">
+    <input
+      type="text"
+      name="title"
+      [(ngModel)]="title"
+      placeholder="Add To Do"
+    />
+    <input type="submit" value="Submit" class="btn btn-success" />
+  </form>
+</div>

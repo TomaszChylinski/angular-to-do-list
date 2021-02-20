@@ -1,0 +1,23 @@
+.fa-times-circle{
+    cursor: pointer;
+}
+.fa-times-circle:hover{
+    font-weight: 500;
+}
+
+.container{
+    padding-top: 20px;
+}
+
+.row{
+    background: #f4f4f4;
+    padding: 10px;
+    border-bottom: 5px gray;
+    padding-top: 2px;
+    align-items: stretch;
+    
+}
+
+.is-complete{
+    text-decoration: line-through;
+}

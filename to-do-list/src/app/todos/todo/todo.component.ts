@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo } from '../../models/ToDo';
+import { TodoItem } from '../../models/toDo';
 import { ToDoService } from '../../services/todo.service';
 
 @Component({
@@ -8,19 +8,15 @@ import { ToDoService } from '../../services/todo.service';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  toDos: Todo[];
+  toDoItems: TodoItem[] = [];
 
-  constructor(private toDoServce: ToDoService) {}
+  constructor(private toDoService: ToDoService) {} // dependency injection 
 
   ngOnInit() {
-    this.toDoServce.getToDos().subscribe((todos) => {
-      this.toDos = todos;
-    });
+   this.toDoItems = this.toDoService.getProducts();
+  console.log('show me this ', this.toDoItems)
+
   }
 
-  deleteToDo(todo: Todo) {
-    console.log('fire delete');
-    this.toDos = this.toDos.filter(t => t.id !== todo.id);
-    this.toDoServce.deleteToDo(todo).subscribe();
-  }
+    // load toDoItems
 }

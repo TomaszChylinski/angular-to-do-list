@@ -1,5 +1,9 @@
-<app-todo-item
-  *ngFor="let todo of toDos"
-  [todo]="todo"
-  (deleteToDo)="(deleteToDo($event))"
-></app-todo-item>
+<div *ngIf="toDoItems" class="alert alert-info">No Items Added</div>
+<div class="row">
+  <app-add-to-do></app-add-to-do>
+</div>
+<div *ngFor="let item of toDoItems" class="row">
+  <div class="col-md-8">
+    <app-todo-item [itemToDo]="item"></app-todo-item>
+  </div>
+</div>
