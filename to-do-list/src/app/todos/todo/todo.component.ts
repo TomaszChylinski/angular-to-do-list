@@ -8,15 +8,28 @@ import { ToDoService } from '../../services/todo.service';
   styleUrls: ['./todo.component.css'],
 })
 export class TodoComponent implements OnInit {
-  toDoItems: TodoItem[] = [];
+  toDoItems: TodoItem[];
 
-  constructor(private toDoService: ToDoService) {} // dependency injection 
+  constructor(private toDoService: ToDoService) {} // dependency injection
 
   ngOnInit() {
-   this.toDoItems = this.toDoService.getProducts();
-  console.log('show me this ', this.toDoItems)
-
+    this.loadToDoItems();
   }
 
-    // load toDoItems
+  // load toDoItems
+  loadToDoItems() {
+    this.toDoService.getTodDoItems().subscribe((todo) => {
+      // remeber we have to subscribe
+      this.toDoItems = todo;
+
+      console.log('Console items: ', this.toDoItems);
+    });
+  }
+
+  captureToDo(todo: TodoItem) {
+    console.log(' show me todo 2 ', todo)
+    this.toDoService.addToDoItems(todo).subscribe((todo) => {
+      this.toDoItems.push(todo);
+    });
+  }
 }

@@ -9,7 +9,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { TodoComponent } from './todos/todo/todo.component';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import { TodoItemComponent } from './todos/todo-item/todo-item.component';
-import { AddToDoComponent } from './add-to-do/add-to-do.component';
+import { AddToDoComponent } from './todos/add-to-do/add-to-do.component';
 
 
 @NgModule({

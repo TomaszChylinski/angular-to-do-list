@@ -1,24 +1,26 @@
-import { TokenizeOptions } from '@angular/compiler/src/ml_parser/lexer';
 import { Injectable } from '@angular/core';
 import { TodoItem } from '../models/toDo';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const apiUrl = 'http://localhost:3000/todos';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToDoService {
- 
-  toDoItems: TodoItem[] = [
-    new TodoItem(1, 'Buy Daisey Food', false),
-    new TodoItem(2, 'Take out chicken', false),
-    new TodoItem(3, 'Complete homework', false),
-    new TodoItem(4, 'Get a haircut', false),
-    new TodoItem(5, 'Study more', false),
-    new TodoItem(6, 'Create a business', true),
-  ];
+  constructor(private http: HttpClient) {}
 
-  constructor() {}
+  getTodDoItems(): Observable<TodoItem[]> {
+    //get method returns an Observable not an arrary of todo items
+    return this.http.get<TodoItem[]>(apiUrl); //expecation has to be set if you define the type
+  }
 
-  getProducts(): TodoItem[]{
-    return this.toDoItems;
+  addToDoItems(todo: TodoItem): Observable<TodoItem> {
+   return this.http.post<TodoItem>(apiUrl, todo);
+  }
+
+  removeToDoItem(productId){
+    return this.http.delete(apiUrl + '/' + productId);
   }
 }

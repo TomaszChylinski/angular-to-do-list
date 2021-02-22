@@ -1,6 +1,7 @@
 <div *ngIf="toDoItems" class="alert alert-info">No Items Added</div>
 <div class="row">
-  <app-add-to-do></app-add-to-do>
+  <app-add-to-do
+  (addToDo)="captureToDo($event)"></app-add-to-do>
 </div>
 <div *ngFor="let item of toDoItems" class="row">
   <div class="col-md-8">
