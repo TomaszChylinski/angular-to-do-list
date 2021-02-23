@@ -1,17 +1,15 @@
-
-<div class="container"> 
-  <div class="row" >
+<div class="container">
+  <div class="row">
     <div col-md-12>
       <p>
         <input
           type="checkbox"
-         [attr.checked]="itemToDo.completed ? 'checked' : null"
+          [attr.checked]="itemToDo.completed ? 'checked' : null"
         />
-        <label>
-        </label>
-       
-          {{itemToDo.title}}
-        <i class="fas fa-times-circle"></i>
+        <label> </label>
+
+        {{ itemToDo.title }}
+        <i (click)="onDeleteClick($event)" class="fas fa-times-circle"></i>
       </p>
     </div>
   </div>

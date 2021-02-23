@@ -1,29 +1,19 @@
 {
   "todos": [
     {
-      "id": 1,
-      "title": "Take Daisey Out",
-      "completed": false
-    },
-    {
-      "id": 2,
-      "title": "Take Garbage Out",
-      "completed": false
-    },
-    {
-      "id": 3,
-      "title": "Take Car Out",
-      "completed": false
-    },
-    {
-      "id": 4,
-      "title": "Fake Daisey Out",
-      "completed": false
-    },
-    {
       "title": "Watch Cramer",
       "completed": false,
       "id": 5
+    },
+    {
+      "title": "Workout",
+      "completed": false,
+      "id": 6
+    },
+    {
+      "title": "Add Cramer",
+      "completed": false,
+      "id": 7
     }
   ]
 }

@@ -20,7 +20,7 @@ export class ToDoService {
    return this.http.post<TodoItem>(apiUrl, todo);
   }
 
-  removeToDoItem(productId){
-    return this.http.delete(apiUrl + '/' + productId);
+  removeToDoItem(todo: TodoItem): Observable<TodoItem>{
+    return this.http.delete<TodoItem>(apiUrl + '/' + todo.id);
   }
 }

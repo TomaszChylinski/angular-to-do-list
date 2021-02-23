@@ -32,4 +32,10 @@ export class TodoComponent implements OnInit {
       this.toDoItems.push(todo);
     });
   }
+
+  deleteTodoItem(todo: TodoItem){
+    console.log('show me id ', todo);
+    this.toDoItems = this.toDoItems.filter(removedItem => removedItem.id !== todo.id); // removes item from ux 
+    this.toDoService.removeToDoItem(todo).subscribe(); // removes item from service
+  }
 }
