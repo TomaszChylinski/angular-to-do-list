@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { TodoItem } from 'src/app/models/toDo';
 
 @Component({
   selector: 'app-add-to-do',
@@ -9,7 +8,6 @@ import { TodoItem } from 'src/app/models/toDo';
 })
 export class AddToDoComponent implements OnInit {
   @Output() addToDo: EventEmitter<any> = new EventEmitter(); // have to catch this event
-
   title: string;
 
   constructor() {}
@@ -22,9 +20,8 @@ export class AddToDoComponent implements OnInit {
     // make sure that if no value or undefined that we catch that
     const todo = {
       title: this.title,
-      completed: false
+      completed: false,
     };
-
 
     this.addToDo.emit(todo); // able to do if you have an @output
     console.log('add todo component 1: ', todo);

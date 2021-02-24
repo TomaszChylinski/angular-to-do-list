@@ -3,6 +3,7 @@
     <div col-md-12>
       <p>
         <input
+          (click)="toggleTodo(itemToDo)"
           type="checkbox"
           [attr.checked]="itemToDo.completed ? 'checked' : null"
         />

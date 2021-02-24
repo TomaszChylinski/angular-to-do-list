@@ -20,6 +20,10 @@ export class ToDoService {
    return this.http.post<TodoItem>(apiUrl, todo);
   }
 
+  toggleToDoItem(todo: TodoItem): Observable<any>{
+    return this.http.put<any>(apiUrl + '/' + todo.id, todo);
+  }
+
   removeToDoItem(todo: TodoItem): Observable<TodoItem>{
     return this.http.delete<TodoItem>(apiUrl + '/' + todo.id);
   }
